@@ -17,16 +17,24 @@
 
 @implementation ViewController
 
+- (void)slideValueChanged:(id)control {
+    NSLog(@"Slider value changed: (%.2f, %.2f)", _rangeSlider.lowerValue, _rangeSlider.upperValue);
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
     NSUInteger margin = 20;
-    CGRect sliderFrame = CGRectMake(margin, margin, self.view.frame.size.width - margin * 2, 30);
+    CGRect sliderFrame = CGRectMake(margin, margin, self.view.frame.size.width - margin * 2, 50);
     _rangeSlider = [[CERangeSlider alloc] initWithFrame:sliderFrame];
-    _rangeSlider.backgroundColor = [UIColor redColor];
+    //_rangeSlider.backgroundColor = [UIColor redColor];
     
     [self.view addSubview:_rangeSlider];
+    
+    [_rangeSlider addTarget:self action:@selector(slideValueChanged:) forControlEvents:UIControlEventValueChanged];
+    
 }
 
 - (void)didReceiveMemoryWarning {

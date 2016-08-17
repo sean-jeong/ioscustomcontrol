@@ -15,6 +15,13 @@
 @property (nonatomic) float upperValue;
 @property (nonatomic) float lowerValue;
 
+@property (nonatomic) UIColor *trackColor;
+@property (nonatomic) UIColor *trackHighlightColor;
+@property (nonatomic) UIColor *knobColor;
+@property (nonatomic) float curvaceousness;
+@property (nonatomic) int   sectionCount;
+@property (nonatomic) CGSize *knobSize;
 
+- (float) positionForValue:(float)value;
 
 @end
